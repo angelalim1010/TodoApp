@@ -9,17 +9,15 @@ const handlebars = require('handlebars');
 //     console.log(activity);
 // })
 let rawdata = fs.readFileSync('data.json');
-let  dataObj= JSON.parse(rawdata);
+let dataObj= JSON.parse(rawdata);
 console.log(dataObj);
-let source = "<li>Hello, my name is {{name}}. I am from {{completed}}.</li>" 
-            //     +
-            //  "{{kids.length}} kids:</p>" +
-            //  "<ul>{{#kids}}<li>{{name}} is {{age}}</li>{{/kids}}</ul>";
+let source = "<ul> {{#each object}} <li>{{name}}</li> {{/each}} </ul>";
+let wrapper = {object : dataObj};
 let template = handlebars.compile(source);
  
 // var data = { "name": "Alan", "hometown": "Somewhere, TX",
 //              "kids": [{"name": "Jimmy", "age": "12"}, {"name": "Sally", "age": "4"}]};
-let result = template(dataObj);
+let result = template(wrapper);
 console.log(result);
 
 app.use(express.static('public'));
