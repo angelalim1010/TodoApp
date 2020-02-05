@@ -3,7 +3,19 @@
 <body>
   plain html
   <div>
-	  <ul> {{#each object}} <li>{{name}}</li> {{/each}} </ul>
+	  <ul> 
+      {{#each object}} 
+        {{#if_eq completed true}}
+        <li>
+          <strike>{{name}}</strike>
+        </li>
+        {{else}}        
+        <li>
+          {{name}}
+        </li> 
+        {{/if_eq}}
+      {{/each}} 
+    </ul>
   </div>
 </body>
 </html>
