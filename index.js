@@ -3,6 +3,9 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const hbs = require('hbs');
+const bodyParser = require('body-parser');
+const multer = require('multer');
+
 
 const app = express();
 
@@ -25,5 +28,18 @@ hbs.registerHelper('if_eq', function(a, b, opts) {
 app.get('/', (req,res)=>{
     res.render('indexTemplate.hbs',{object : dataObj} );
 });
+
+// for parsing application/json
+app.use(bodyParser.json()); 
+
+// for parsing application/xwww-
+app.use(bodyParser.urlencoded({ extended: true })); 
+//form-urlencoded
+
+
+app.post('/submit-form', (req,res)=>{
+    console.log(req.body)
+    res.send("recieved your request!")
+})
 
 app.listen(3001,()=> console.log('App listening on port 3001'));
