@@ -31,7 +31,7 @@ app.set('views', path.join(__dirname,'/views'));
 // app.get('/', (req,res)=>{
 //     res.render('indexTemplate.hbs',{object : dataObj} );
 // });
-app.use(logger("dev"));
+// app.use(logger("dev"));
 
 // for parsing application/json
 app.use(bodyParser.json()); 
@@ -39,32 +39,17 @@ app.use(bodyParser.json());
 // for parsing application/xwww-
 app.use(bodyParser.urlencoded({ extended: false })); 
 //form-urlencoded
-app.use(express.static(__dirname + 'public'));
+// app.use(express.static(__dirname + 'public'));
 
 
 app.use("/user", USER_ROUTES);
 
 
-// catch 404 and forward to error handler
-app.use((req, res, next) => {
-    next(createError(404));
-  });
-
-// error handler
-app.use(function (err, req, res, next) {
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-  
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
-  });
-  
-
 // app.post('/submit-form', (req,res)=>{
 //     console.log(req.body)
 //     res.send("recieved your request!")
 // })
+
 
 app.listen(3000,()=> console.log('App listening on port 3000'));
 
