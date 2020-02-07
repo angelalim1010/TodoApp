@@ -5,8 +5,10 @@ const path = require('path');
 const hbs = require('hbs');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
-require("dotenv").config();
 
+ if (process.env.NODE_ENV !== "production") {
+    require("dotenv").config();
+ }
 
 const app = express();
 const USER_ROUTES =  require("./routes/user");
