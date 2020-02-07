@@ -1,0 +1,30 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "Live version of static webpage: https://angelalim1010.github.io/TodoApp/public/",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "hbs": "^4.1.0",
+    "morgan": "^1.9.1",
+    "handlebars": "^4.7.2",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angelalim1010/TodoApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/angelalim1010/TodoApp/issues"
+  },
+  "homepage": "https://github.com/angelalim1010/TodoApp#readme"
+}
