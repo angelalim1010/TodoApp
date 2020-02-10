@@ -6,6 +6,7 @@ const hbs = require('hbs');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 
+require('dotenv').config();
  if (process.env.NODE_ENV !== "production") {
     require("dotenv").config();
  }
@@ -33,7 +34,7 @@ app.set('views', path.join(__dirname,'/views'));
 // app.get('/', (req,res)=>{
 //     res.render('indexTemplate.hbs',{object : dataObj} );
 // });
-// app.use(logger("dev"));
+app.use(logger("dev"));
 
 // for parsing application/json
 app.use(bodyParser.json()); 
