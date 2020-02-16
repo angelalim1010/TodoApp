@@ -4,7 +4,11 @@ const router = express.Router();
 
 router.get("/", async (req, res, next) => {
 	try {
-		res.render("index");
+		let currentUser =
+			req.signedCookies.user !== undefined
+				? req.signedCookies.user
+				: "Please log into a user";
+        res.render("index", { title: currentUser });
 	} catch (err) {
 		console.log(err);
 	}
@@ -26,5 +30,12 @@ router.get("/signup", async (req, res, next) => {
 	}
 });
 
+router.get("/todos", async (req, res, next) => {
+	try {
+		res.render("todo");
+	} catch (err) {
+		console.log(err);
+	}
+});
 
 module.exports = router;

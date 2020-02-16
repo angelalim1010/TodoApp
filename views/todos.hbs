@@ -1,0 +1,22 @@
+<ul>
+	{{#each todos as |todo|}}
+	<li>
+		{{!-- <a href="/todos/{{todo.id}}">{{todo.content}}</a> --}}
+			<li>
+				id : {{todo.id}}
+			</li>
+			<li>
+				content : {{todo.content}}
+			</li>
+			<li>
+				completed : {{todo.completed}}
+			</li>
+			<li>
+				deleted : {{todo.deleted}}
+			</li>
+			<li>
+				user_id : {{todo.user_id}}
+			</li>
+	</li>
+	{{/each}}
+</ul>

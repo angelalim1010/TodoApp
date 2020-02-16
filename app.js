@@ -16,9 +16,11 @@ require('dotenv').config();
     require("dotenv").config();
  }
 
-const USER_ROUTES =  require("./routes/user");
+const USERS_ROUTES =  require("./routes/users");
 const INDEX_ROUTES = require("./routes/index");
 const AUTH_ROUTES = require("./routes/auth");
+// const TODO_ROUTES = require("./routes/todos");
+const cookieSecret = process.env.COOKIE_SECRET
 
 
 app.set('views', path.join(__dirname,'/views'));
@@ -27,15 +29,16 @@ app.set('view engine','hbs');
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser(cookieSecret));
 // app.use(express.static(path.join(__dirname, "public")));
 
 
 app.use(cookieParser());
 
 app.use("/", INDEX_ROUTES);
-app.use("/user", USER_ROUTES);
+app.use("/users", USERS_ROUTES);
 app.use("/auth", AUTH_ROUTES);
+// app.use("/todos", TODO_ROUTES);
 
 
 // catch 404 and forward to error handler
