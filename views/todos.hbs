@@ -2,7 +2,7 @@
 	{{#each todos as |todo|}}
 	<li>
 		{{!-- <a href="/todos/{{todo.id}}">{{todo.content}}</a> --}}
-			<li>
+			{{!-- <li>
 				id : {{todo.id}}
 			</li>
 			<li>
@@ -16,7 +16,10 @@
 			</li>
 			<li>
 				user_id : {{todo.user_id}}
-			</li>
+			</li> --}}
+			<li>
+		<a href="/todos/{{todo.id}}">{{todo.content}}</a>
+	</li>
 	</li>
 	{{/each}}
 </ul>

@@ -1,3 +1,8 @@
+require('dotenv').config();
+ if (process.env.NODE_ENV !== "production") {
+    require("dotenv").config();
+ }
+
 const express = require('express');
 
 const fs = require('fs');
@@ -11,15 +16,12 @@ const cookieParser = require("cookie-parser");
 const app = express();
 
 
-require('dotenv').config();
- if (process.env.NODE_ENV !== "production") {
-    require("dotenv").config();
- }
+
 
 const USERS_ROUTES =  require("./routes/users");
 const INDEX_ROUTES = require("./routes/index");
 const AUTH_ROUTES = require("./routes/auth");
-// const TODO_ROUTES = require("./routes/todos");
+const TODO_ROUTES = require("./routes/todos");
 const cookieSecret = process.env.COOKIE_SECRET
 
 
@@ -38,7 +40,7 @@ app.use(cookieParser());
 app.use("/", INDEX_ROUTES);
 app.use("/users", USERS_ROUTES);
 app.use("/auth", AUTH_ROUTES);
-// app.use("/todos", TODO_ROUTES);
+app.use("/todos", TODO_ROUTES);
 
 
 // catch 404 and forward to error handler
