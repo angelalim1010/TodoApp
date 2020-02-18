@@ -2,5 +2,8 @@
 	<h1>{{user}}</h1>
 </div>
 <div>
-    <a href="/todos">Todos</a>
+    {{#if_eq user "Not Logged In"}}
+        {{else}}
+            <a href="/todos">Todos</a>
+    {{/if_eq}}
 </div>

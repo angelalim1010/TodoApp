@@ -33,13 +33,4 @@ router.get("/signup", async (req, res, next) => {
 	}
 });
 
-// router.get("/todos", async (req, res, next) => {
-// 	try {
-//         console.log(res.data);
-// 		res.render("todos");
-// 	} catch (err) {
-// 		console.log(err);
-// 	}
-// });
-
 module.exports = router;

@@ -42,6 +42,13 @@ app.use("/users", USERS_ROUTES);
 app.use("/auth", AUTH_ROUTES);
 app.use("/todos", TODO_ROUTES);
 
+hbs.registerHelper('if_eq', function(a, b, opts) {
+   if (a == b) {
+       return opts.fn(this);
+   } else {
+       return opts.inverse(this);
+   }
+});
 
 // catch 404 and forward to error handler
 app.use(function(req,res){
