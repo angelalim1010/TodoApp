@@ -2,13 +2,10 @@
 	<ul>
 		{{#each todos as |todo|}}
 		<li>
-			<a href="/todos/{{todo.id}}">{{todo.content}}</a>
+			content : {{todo.content}}
 			<ul>
 			<li>
 				id : {{todo.id}}
-			</li>
-			<li>
-				content : {{todo.content}}
 			</li>
 			<li>
 				completed : {{todo.completed}}
