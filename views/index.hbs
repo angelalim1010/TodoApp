@@ -1,5 +1,9 @@
 <div>
-	<h1>{{user}}</h1>
+    {{#if_eq user "Not Logged In"}}
+	    <h1>{{user}}</h1>
+        {{else}}
+        <h1>You are logged in as {{user}}</h1>
+    {{/if_eq}}
 </div>
 <div>
     {{#if_eq user "Not Logged In"}}

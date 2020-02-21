@@ -1,24 +1,37 @@
-<ul>
-	{{#each todos as |todo|}}
-	<li>
-		<a href="/todos/{{todo.id}}">{{todo.content}}</a>
-		<ul>
+<div>
+	<ul>
+		{{#each todos as |todo|}}
 		<li>
-			id : {{todo.id}}
+			<a href="/todos/{{todo.id}}">{{todo.content}}</a>
+			<ul>
+			<li>
+				id : {{todo.id}}
+			</li>
+			<li>
+				content : {{todo.content}}
+			</li>
+			<li>
+				completed : {{todo.completed}}
+			</li>
+			<li>
+				deleted : {{todo.deleted}}
+			</li>
+			<li>
+				user_id : {{todo.user_id}}
+			</li>
+		</ul>
 		</li>
-		<li>
-			content : {{todo.content}}
-		</li>
-		<li>
-			completed : {{todo.completed}}
-		</li>
-		<li>
-			deleted : {{todo.deleted}}
-		</li>
-		<li>
-			user_id : {{todo.user_id}}
-		</li>
+		{{/each}}
 	</ul>
-	</li>
-	{{/each}}
-</ul>
+</div>
+
+<div style="margin-top:20px;">
+	<h2>Create Todo Item</h2>
+	<form action="/todos/" method="POST">
+		<div class="form-group">
+			<label for="content">content</label>
+			<input type="text" class="form-control" name="content" placeholder="Enter content">
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>

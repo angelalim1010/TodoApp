@@ -51,4 +51,29 @@ router.get("/:id", async (req, res, next) => {
 	}
 });
 
+router.post("/", async(req, res, next)=>{
+	try {
+		if (req.signedCookies.Authentication === undefined) {
+			res.render("error", {
+				message: "Error. User not authenticated.",
+				error: { status: 401 }
+			});
+		} else {
+			await axios({
+				method: "POST",
+				url: `${API_URL}/todo-item`,
+				headers: {
+					Cookie: `token=${req.signedCookies.Authentication}`
+				},
+				data: {
+					content: req.body.content
+				}
+			});
+			res.status(200).redirect("/todos");
+		}
+	} catch (err) {
+		console.log(err);
+	}
+})
+
 module.exports = router;
