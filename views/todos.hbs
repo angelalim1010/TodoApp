@@ -1,25 +1,43 @@
 <div>
-	<ul>
-		{{#each todos as |todo|}}
-		<li>
+	{{#each todos as |todo|}}
+		<div>
+			<li>
 			content : {{todo.content}}
-			<ul>
-			<li>
-				id : {{todo.id}}
+				<ul>
+				<li>
+					id : {{todo.id}}
+				</li>
+				<li>
+					completed : {{todo.completed}}
+				</li>
+				<li>
+					deleted : {{todo.deleted}}
+				</li>
+				<li>
+					user_id : {{todo.user_id}}
+				</li>
+				</ul>
 			</li>
-			<li>
-				completed : {{todo.completed}}
-			</li>
-			<li>
-				deleted : {{todo.deleted}}
-			</li>
-			<li>
-				user_id : {{todo.user_id}}
-			</li>
-		</ul>
-		</li>
-		{{/each}}
-	</ul>
+		</div>
+		<div>
+			<form action="/todos/{{todo.id}}/update/" method="POST">
+				<div class="form-group">
+					<select name="completed">
+						<option disabled selected value> -- select an option -- </option>
+						<option value="Done">Done</option>
+						<option value="Not Done">Not Done</option>
+					</select>
+				</div>
+				<button type="submit" class="btn btn-primary">Change Status</button>
+			</form>
+		</div>
+		<div>
+			<form action="/todos/{{todo.id}}/delete/" method="GET">
+				<input type="submit" value="Delete Item" />
+			</form>
+		</div>
+	{{/each}}
+	
 </div>
 
 <div style="margin-top:20px;">

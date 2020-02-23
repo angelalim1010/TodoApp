@@ -76,4 +76,50 @@ router.post("/", async(req, res, next)=>{
 	}
 })
 
+
+router.post("/:id/update", async(req,res,next)=>{
+	try {
+		if (req.signedCookies === undefined) {
+			res.render("error", {
+				message: "Error. User not authenticated.",
+				error: { status: 401 }
+			});
+		} else {
+			await axios({
+				method: "PUT",
+				url: `${API_URL}/todo-item/${req.params.id}`,
+				headers: {
+					Cookie: `token=${req.signedCookies.Authentication}`
+				},
+				data: {
+					completed: req.body.completed === "Done"
+				}
+			});
+			res.status(200).redirect("/todos");
+		}
+	} catch (err) {
+		console.log(err);
+	}
+})
+
+router.get("/:id/delete", async(req,res,next)=>{
+	try {
+		if (req.signedCookies === undefined) {
+			res.render("error", {
+				message: "Error. User not authenticated.",
+				error: { status: 401 }
+			});
+		} else {
+			await axios.delete(`${API_URL}/todo-item/${req.params.id}`, {
+				headers: {
+					Cookie: `token=${req.signedCookies.Authentication}`
+				}
+			});
+			res.status(200).redirect("/todos");
+		}
+	} catch (err) {
+		console.log(err);
+	}
+})
+
 module.exports = router;

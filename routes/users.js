@@ -26,10 +26,21 @@ router.get("/:username", async(req,res,next)=>{
 
 router.post("/", async(req,res,next)=>{
 	try{
-		const auth_res = await axios.post(`${API_URL}/user`, {
+		await axios.post(`${API_URL}/user`, {
 			username: req.body.username
 		});
-		res.status(201).json(newUser.data);
+		const new_user = await axios.post(`${API_URL}/auth`, {
+			username: req.body.username
+		});
+		res.cookie("Authentication", new_user.data.token, {
+			signed: true,
+			httpOnly: true
+		});
+		res.cookie("user", req.body.username, {
+			signed: true,
+			httpOnly: true
+		});
+		res.status(200).redirect("/");
 	}catch(err){
 		console.log(err);
 	}
