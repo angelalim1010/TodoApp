@@ -20,7 +20,7 @@ router.get("/", async (req, res, next) => {
 					Cookie: `token=${req.signedCookies.Authentication}`
 				}
 			});
-			res.status(200).render("todos", { todos: response.data });
+			res.status(200).render("todos", { todos: response.data.filter(x=> !x.deleted) });
 		}
 	} catch (err) {
 		if (err.response.status === 404) {
