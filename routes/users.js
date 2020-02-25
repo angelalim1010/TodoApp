@@ -42,6 +42,12 @@ router.post("/", async(req,res,next)=>{
 		});
 		res.status(200).redirect("/");
 	}catch(err){
+		if (err.response.status === 400) {
+			res.render("error", {
+				message: "Error. User already exists. Please login",
+				error: { status: 400 }
+			})
+		}
 		console.log(err);
 	}
 })

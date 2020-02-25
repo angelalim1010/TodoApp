@@ -8,7 +8,7 @@ router.get("/", async (req, res, next) => {
 		let currUser =
 			req.signedCookies.user !== undefined
 				? req.signedCookies.user
-				: "Not Logged In";
+				: "Not Logged In. Please login";
 		res.render("index", { user: currUser });
 	} catch (err) {
 		console.log(err);
