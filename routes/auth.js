@@ -1,3 +1,5 @@
+//File for login and logout of user
+
 const express = require("express");
 const router = express.Router();
 
@@ -5,6 +7,8 @@ const axios = require("axios");
 
 const API_URL = process.env.API_URL;
 
+
+//POST for login 
 router.post("/login", async(req,res,next)=>{
     try {
 		const response = await axios.post(`${API_URL}/auth`, {
@@ -24,7 +28,8 @@ router.post("/login", async(req,res,next)=>{
 	}
 });
 
-
+//GET for logout 
+// /auth/logout
 router.get("/logout", async(req,res,next)=>{
 	try {
 		res.clearCookie("Authentication");

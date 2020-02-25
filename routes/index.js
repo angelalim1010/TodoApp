@@ -1,8 +1,9 @@
+//File that will render the login, signup and home page
+
 const express = require("express");
 const router = express.Router();
 
-
-/* GET home page. */
+//get homepage
 router.get("/", async (req, res, next) => {
 	try {
 		let currUser =
@@ -15,7 +16,7 @@ router.get("/", async (req, res, next) => {
 	}
 });
 
-// gets user form for login
+// gets login form
 router.get("/login", async (req, res, next) => {
 	try {
 		res.render("login");
@@ -24,7 +25,7 @@ router.get("/login", async (req, res, next) => {
 	}
 });
 
-// gets user form for signup
+// gets signup form
 router.get("/signup", async (req, res, next) => {
 	try {
 		res.render("signup");

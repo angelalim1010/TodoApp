@@ -1,3 +1,4 @@
+//File for todo
 const express = require("express");
 const router = express.Router();
 
@@ -30,6 +31,7 @@ router.get("/", async (req, res, next) => {
 	}
 });
 
+//get todo from todo id
 router.get("/:id", async (req, res, next) => {
 	try {
 		if (req.signedCookies === undefined) {
@@ -51,6 +53,8 @@ router.get("/:id", async (req, res, next) => {
 	}
 });
 
+
+//post new todo
 router.post("/", async(req, res, next)=>{
 	try {
 		if (req.signedCookies.Authentication === undefined) {
@@ -77,6 +81,8 @@ router.post("/", async(req, res, next)=>{
 })
 
 
+//update todo, axios put but is a POST request
+
 router.post("/:id/update", async(req,res,next)=>{
 	try {
 		if (req.signedCookies === undefined) {
@@ -102,6 +108,8 @@ router.post("/:id/update", async(req,res,next)=>{
 	}
 })
 
+//delete todo by todo id
+//get request but axios delete
 router.get("/:id/delete", async(req,res,next)=>{
 	try {
 		if (req.signedCookies === undefined) {
