@@ -20,7 +20,8 @@ const AUTH_ROUTES = require("./routes/auth");
 const TODO_ROUTES = require("./routes/todos");
 
 //adding cookie secret for cookieparser
-const cookieSecret = process.env.COOKIE_SECRET
+const cookieSecret = "secret"
+//process.env.COOKIE_SECRET
 
 
 app.set('views', path.join(__dirname,'/views'));
