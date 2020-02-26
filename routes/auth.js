@@ -5,8 +5,10 @@ const router = express.Router();
 
 const axios = require("axios");
 
-const API_URL = "https://hunter-todo-api.herokuapp.com"
-// process.env.API_URL;
+const API_URL = process.env.API_URL;
+
+// "https://hunter-todo-api.herokuapp.com"
+
 
 
 //POST for login 
