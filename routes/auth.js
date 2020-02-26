@@ -28,7 +28,7 @@ router.post("/login", async(req,res,next)=>{
 	} catch (err) {
 		if (err.response.status === 400) {
 			res.render("error", {
-				message: "Error. User does not exists. Please signup",
+				message: "Error. User doesn't exist. Please signup",
 				error: { status: 400 }
 			})
 		}
