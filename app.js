@@ -22,12 +22,12 @@ const TODO_ROUTES = require("./routes/todos");
 //adding cookie secret for cookieparser
 const cookieSecret = process.env.COOKIE_SECRET
 
-//"secret"
 
 
 app.set('views', path.join(__dirname,'/views'));
 app.set('view engine','hbs');
 
+app.use(express.static(path.join(__dirname, "public")));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
