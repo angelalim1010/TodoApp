@@ -31,6 +31,7 @@ router.get("/:username", async(req,res,next)=>{
 });
 
 //create new user
+//will signup user and login user at the same time
 router.post("/", async(req,res,next)=>{
 	try{
 		await axios.post(`${API_URL}/user`, {

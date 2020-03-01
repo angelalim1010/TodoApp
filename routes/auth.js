@@ -7,9 +7,6 @@ const axios = require("axios");
 
 const API_URL = process.env.API_URL;
 
-// "https://hunter-todo-api.herokuapp.com"
-
-
 
 //POST for login 
 //auth/login

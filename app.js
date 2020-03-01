@@ -22,8 +22,6 @@ const TODO_ROUTES = require("./routes/todos");
 //adding cookie secret for cookieparser
 const cookieSecret = process.env.COOKIE_SECRET
 
-//"secret"
-
 
 app.set('views', path.join(__dirname,'/views'));
 app.set('view engine','hbs');
